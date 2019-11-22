@@ -51,7 +51,8 @@ GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Took me a while to figure out you couldn't 
+-Took me a while to figure out you couldn't have spaces in the message that would pop up in the xss notification.
+-Ran into some issues where posts would publish but I'd get a 404 when trying to view them, even as a preview.
 
 ## License
 
