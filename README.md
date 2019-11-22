@@ -3,7 +3,7 @@
 
 Time spent: 5 hours spent in total
 
-> Objective: Find, analyze, recreate, and document **five vulnerabilities** affecting an old version of WordPress
+> Objective: Find, analyze, recreate, and document **three to five vulnerabilities** affecting an old version of WordPress
 
 ## Pentesting Report
 
@@ -18,24 +18,24 @@ Time spent: 5 hours spent in total
   - [x] Affected source code: None
     - [Link](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3440)
 1. (Required) Vulnerability Name or ID: Authenticated Stored XSS
-  - [ ] Summary: Trigger XSS through a post, mousing over it will do it
+  - [x] Summary: Trigger XSS through a post, mousing over it will do it
     - Vulnerability types: Authenticated stored XSS
     - Tested in version: 4.2
     - Fixed in version: 4.2.3
-  - [ ] GIF Walkthrough: ![GIF2](https://user-images.githubusercontent.com/22669092/69396766-488d3f00-0c98-11ea-8828-04ab21333d86.gif)
-  - [ ] Steps to recreate: Create a new post with the body: 
+  - [x] GIF Walkthrough: ![GIF2](https://user-images.githubusercontent.com/22669092/69396766-488d3f00-0c98-11ea-8828-04ab21333d86.gif)
+  - [x] Steps to recreate: Create a new post with the body: 
         > <a href="[caption code=">]</a><a title=" onmouseover=alert('test') ">link</a>
-  - [ ] Affected source code:
+  - [x] Affected source code:
     - [Link 1](https://klikki.fi/adv/wordpress3.html)
 1. (Required) Vulnerability Name or ID
-  - [ ] Summary: Use a youtube url embed but woah it's actually XSS oops
+  - [x] Summary: Use a youtube url embed but woah it's actually XSS oops
     - Vulnerability types: Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds
     - Tested in version: 4.2
     - Fixed in version: 4.2.13
-  - [ ] GIF Walkthrough: ![GIF3](https://user-images.githubusercontent.com/22669092/69396469-2941e200-0c97-11ea-9d03-680a29ee61fb.gif)
-  - [ ] Steps to recreate: Make a post and use code: 
+  - [x] GIF Walkthrough: ![GIF3](https://user-images.githubusercontent.com/22669092/69396469-2941e200-0c97-11ea-9d03-680a29ee61fb.gif)
+  - [x] Steps to recreate: Make a post and use code: 
         > [embed src='https://youtube.com/embed/videoURL<svg onload=alert("put a message in here")>'][/embed]
-  - [ ] Affected source code:
+  - [x] Affected source code:
     - [Link](https://core.trac.wordpress.org/changeset/40160/trunk/src/wp-includes/embed.php?old=38361&old_path=trunk%2Fsrc%2Fwp-includes%2Fembed.php) 
 
 ## Assets
@@ -51,7 +51,7 @@ GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while doing the work
+Took me a while to figure out you couldn't 
 
 ## License
 
