@@ -1,57 +1,42 @@
 # IST590-Unit7
 # Project 7 - WordPress Pentesting
 
-Time spent: **X** hours spent in total
+Time spent: 5 hours spent in total
 
 > Objective: Find, analyze, recreate, and document **five vulnerabilities** affecting an old version of WordPress
 
 ## Pentesting Report
 
+1. (Required) Vulnerability Name or ID: Unauthenticated Persistent Stored XSS
+  - [x] Summary: Post a comment with > 64k data in it and anytime you move your mouse you get a pop-up notification on the site if the comment is being displayed.
+    - Vulnerability types: Unauthenticated XSS
+    - Tested in version: 4.2
+    - Fixed in version:  4.2.1
+  - [x] GIF Walkthrough: ![GIF1](https://user-images.githubusercontent.com/22669092/69396033-d61b5f80-0c95-11ea-8fd0-1feff99bdeba.gif)
+  - [x] Steps to recreate: Submit a comment with the entry:
+        > <a title='x onmouseover=alert(unescape(/hello20%world/.source)) style=position:absolute;left:0;top:0;width:5000px;height:5000px <whatever you want, just over 64k of data, e.g. spam "A" a lot'></a>
+  - [x] Affected source code: None
+    - [Link](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3440)
+1. (Required) Vulnerability Name or ID: Authenticated Stored XSS
+  - [ ] Summary: Trigger XSS through a post, mousing over it will do it
+    - Vulnerability types: Authenticated stored XSS
+    - Tested in version: 4.2
+    - Fixed in version: 4.2.3
+  - [ ] GIF Walkthrough: ![GIF2](https://user-images.githubusercontent.com/22669092/69396766-488d3f00-0c98-11ea-8828-04ab21333d86.gif)
+  - [ ] Steps to recreate: Create a new post with the body: 
+        > <a href="[caption code=">]</a><a title=" onmouseover=alert('test') ">link</a>
+  - [ ] Affected source code:
+    - [Link 1](https://klikki.fi/adv/wordpress3.html)
 1. (Required) Vulnerability Name or ID
-  - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
-  - [ ] Steps to recreate: 
+  - [ ] Summary: Use a youtube url embed but woah it's actually XSS oops
+    - Vulnerability types: Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds
+    - Tested in version: 4.2
+    - Fixed in version: 4.2.13
+  - [ ] GIF Walkthrough: ![GIF3](https://user-images.githubusercontent.com/22669092/69396469-2941e200-0c97-11ea-9d03-680a29ee61fb.gif)
+  - [ ] Steps to recreate: Make a post and use code: 
+        > [embed src='https://youtube.com/embed/videoURL<svg onload=alert("put a message in here")>'][/embed]
   - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
-1. (Required) Vulnerability Name or ID
-  - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
-  - [ ] Steps to recreate: 
-  - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
-1. (Required) Vulnerability Name or ID
-  - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
-  - [ ] Steps to recreate: 
-  - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
-1. (Optional) Vulnerability Name or ID
-  - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
-  - [ ] Steps to recreate: 
-  - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
-1. (Optional) Vulnerability Name or ID
-  - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
-  - [ ] Steps to recreate: 
-  - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php) 
+    - [Link](https://core.trac.wordpress.org/changeset/40160/trunk/src/wp-includes/embed.php?old=38361&old_path=trunk%2Fsrc%2Fwp-includes%2Fembed.php) 
 
 ## Assets
 
@@ -70,7 +55,7 @@ Describe any challenges encountered while doing the work
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2019] [Navjot Gill]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
